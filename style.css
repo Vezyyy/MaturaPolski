@@ -37,6 +37,7 @@ a {
     position: fixed;
     bottom: 30px;
     right: 30px;
+    width: 2.5em;
     background-color: #3498db;
     color: white;
     border: none;
