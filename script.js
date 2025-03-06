@@ -1,18 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
     const toggleButton = document.querySelector(".nav-toggle");
-    const navMenu = document.querySelector("nav ul");
+    const navMenu = document.querySelector("nav");  // Zmieniamy na całe "nav", a nie "nav ul"
     const navLinks = document.querySelectorAll("nav ul li a");
+    const scrollToTopButton = document.querySelector(".scroll-to-top");
 
+    // Toggle menu na urządzeniach mobilnych
     toggleButton.addEventListener("click", function () {
         navMenu.classList.toggle("active");
     });
 
+    // Przewijanie i zamykanie menu po kliknięciu na link w menu
     navLinks.forEach(function (link) {
         link.addEventListener("click", function (event) {
             // Zatrzymaj domyślne przewijanie
             event.preventDefault();
 
-            // Zwiń menu na urządzeniach mobilnych
+            // Zwiń menu po kliknięciu linku
             navMenu.classList.remove("active");
 
             // Zaktualizuj aktywne linki
@@ -27,21 +30,22 @@ document.addEventListener("DOMContentLoaded", function () {
             targetSection.scrollIntoView({ behavior: "smooth" });
         });
     });
-});
 
-document.addEventListener("DOMContentLoaded", function () {
-    const scrollToTopButton = document.querySelector(".scroll-to-top");
-
-    // Pokaż/ukryj przycisk w zależności od przewinięcia strony
+    // Pokazywanie/ukrywanie przycisku scroll to top
     window.addEventListener("scroll", function () {
         if (window.scrollY > 300) { // Pokaż przycisk po przewinięciu 300px
             scrollToTopButton.classList.add("show");
         } else {
             scrollToTopButton.classList.remove("show");
         }
+
+        // Zamknij menu, jeśli strona jest przewijana
+        if (navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+        }
     });
 
-    // Funkcja do przewijania na górę strony po kliknięciu
+    // Funkcja przewijania na górę strony po kliknięciu przycisku
     scrollToTopButton.addEventListener("click", function () {
         window.scrollTo({
             top: 0,

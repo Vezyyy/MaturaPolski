@@ -1,33 +1,41 @@
-        /* Stylizacja paska */
-        ::-webkit-scrollbar {
-            width: 8px; /* Szerokość paska */
-        }
+/* Stylizacja paska */
+::-webkit-scrollbar {
+    width: 8px;
+    /* Szerokość paska */
+}
 
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1; /* Kolor tła paska */
-        }
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Kolor tła paska */
+}
 
-        ::-webkit-scrollbar-thumb {
-            background-color: #039ae0; /* Zielony kolor paska */
-            border-radius: 10px; /* Zaokrąglone rogi */
-        }
+::-webkit-scrollbar-thumb {
+    background-color: #039ae0;
+    /* Zielony kolor paska */
+    border-radius: 10px;
+    /* Zaokrąglone rogi */
+}
 
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: #1657ac; /* Ciemniejszy zielony kolor po najechaniu */
-        }
+::-webkit-scrollbar-thumb:hover {
+    background-color: #1657ac;
+    /* Ciemniejszy zielony kolor po najechaniu */
+}
 
 /* Usunięcie podkreślenia i stylizacja dla linków */
 a {
-    text-decoration: none; /* Usunięcie podkreślenia */
-    color: inherit; /* Dziedziczy kolor tekstu z rodzica */
-    transition: all 0.3s ease; /* Płynne przejścia */
+    text-decoration: none;
+    /* Usunięcie podkreślenia */
+    color: inherit;
+    /* Dziedziczy kolor tekstu z rodzica */
+    transition: all 0.3s ease;
+    /* Płynne przejścia */
 }
 
-.read_more{
+.read_more {
     color: rgb(31, 234, 241);
 }
 
-.read-more:hover{
+.read-more:hover {
     color: #ecf0f1;
     font-weight: bold;
 }
@@ -47,20 +55,23 @@ a {
     cursor: pointer;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
-    display: none; /* Na początku niewidoczny */
+    display: none;
+    /* Na początku niewidoczny */
     z-index: 9999;
 }
 
 /* Efekt po najechaniu */
 .scroll-to-top:hover {
     background-color: #2980b9;
-    transform: translateY(-5px); /* Lekko unosi się przy hover */
+    transform: translateY(-5px);
+    /* Lekko unosi się przy hover */
     box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Efekt po kliknięciu (zatrzymuje przycisk w górze) */
 .scroll-to-top:active {
-    transform: translateY(2px); /* Przytrzymanie przycisku po kliknięciu */
+    transform: translateY(2px);
+    /* Przytrzymanie przycisku po kliknięciu */
 }
 
 /* Animacja dla widoczności przycisku */
@@ -106,149 +117,137 @@ body {
     scroll-behavior: smooth;
 }
 
-/* Nagłówek */
-header {
-    background: rgba(44, 62, 80, 0.9);
-    color: white;
-    padding: 20px;
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-/* Nawigacja */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(52, 73, 94, 0.9);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    padding: 10px 20px;
+/* Na początek, styl dla samej nawigacji */
+nav {
     position: fixed;
-    width: 100%;
     top: 0;
-    left: 0;
+    left: -250px; /* Ukrycie menu na urządzeniach mobilnych */
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    padding-top: 20px;
     z-index: 1000;
+    /* Zapewnia, że menu jest na wierzchu */
+    overflow-y: auto;
+    /* Pozwala na przewijanie menu */
+    transition: left 0.3s ease;
+    /* Animacja dla wysuwania menu */
 }
 
-/* Przycisk hamburgera */
-.nav-toggle {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
-    color: white;
-    background: none;
-    border: none;
-    padding: 10px;
-    transition: all 0.3s ease;
-    border-radius: 5px;
+/* Aktywna klasa menu, powodująca jego wysunięcie */
+nav.active {
+    left: 0;
+    /* Menu wysuwa się na ekran */
 }
 
-.nav-toggle:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.1);
-}
-
-/* Lista nawigacji */
+/* Styl dla listy linków */
 nav ul {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
     margin: 0;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
 }
 
 nav ul li {
-    margin: 10px;
+    margin: 10px 0;
+    text-align: left;
+    display: flex;
+    align-items: center;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
-    font-size: 18px;
-    padding: 15px 20px;
-    display: block;
-    transition: all 0.3s ease;
-    border-radius: 8px;
-    background: rgba(26, 188, 156, 0.8);
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border-radius: 5px;
+    width: 100%;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Styl ikonki i tekstu obok siebie */
+nav ul li a i {
+    margin-right: 10px;
+    font-size: 18px;
+    /* Rozmiar ikony */
+}
+
+/* Efekt hover - zmiana tła i koloru tekstu */
 nav ul li a:hover {
-    background: rgba(22, 160, 133, 1);
+    background-color: #555;
+    color: #f4f4f4;
+}
+
+/* Animacja dla ikon */
+nav ul li a i {
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover i {
     transform: scale(1.1);
 }
 
-/* Animacja migania */
-nav ul li a.active {
-    background-color: #16a085;
-    animation: blink 1s ease-out forwards;
+/* Przycisk hamburger menu - widoczny na urządzeniach mobilnych */
+.nav-toggle {
+    display: none; /* Ukryty domyślnie */
+    font-size: 30px;
+    color: white;
+    background-color: rgba(128, 128, 128, 0.356);
+    border-radius: 100%; /* Zaokrąglenie na 100% tworzy kółko */
+    cursor: pointer;
+    position: fixed; /* Przypinamy przycisk do ekranu */
+    top: 20px; /* Możesz dostosować do preferowanego miejsca */
+    right: 20px; /* Odstęp od prawego krawędzi ekranu */
+    z-index: 2000; /* Upewniamy się, że przycisk jest zawsze na wierzchu */
+    width: 50px; /* Szerokość przycisku */
+    height: 50px; /* Wysokość przycisku */
+    display: flex; /* Używamy Flexbox, aby centrować ikonę */
+    justify-content: center; /* Wyrównanie ikony w poziomie */
+    align-items: center; /* Wyrównanie ikony w pionie */
+    transition: background-color 0.3s; /* Animacja zmiany tła przy kliknięciu */
+    border-color: rgb(249, 250, 249);
 }
 
-@keyframes blink {
-    0% {
-        background-color: #16a085;
-        opacity: 1;
+/* Styl dla nawigacji na komputerach */
+@media (min-width: 768px) {
+    nav {
+        left: 0;
+        /* Menu jest zawsze widoczne na większych ekranach */
+        width: 250px;
     }
-    50% {
-        opacity: 0.5;
+
+    .nav-toggle {
+        display: none;
+        /* Ukryj przycisk hamburgera na dużych ekranach */
     }
-    100% {
-        background-color: #16a085;
-        opacity: 1;
+
+    nav ul {
+        flex-direction: column;
+        padding-top: 20px;
     }
 }
 
-/* Responsywność */
-@media screen and (max-width: 768px) {
+/* Styl dla nawigacji na urządzeniach mobilnych */
+@media (max-width: 767px) {
+    nav {
+        left: -250px;
+        /* Ukrycie menu na urządzeniach mobilnych */
+    }
+
     .nav-toggle {
         display: block;
-        font-size: 28px;
-        background: rgba(52, 152, 219, 0.8);
-        border-radius: 8px;
-        padding: 10px 15px;
-        border: none;
+        /* Pokazuje przycisk hamburgera na mniejszych ekranach */
     }
-    
-    .nav-toggle:hover {
-        background: rgba(41, 128, 185, 1);
-    }
-    
-    nav ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: fixed;
-        top: 0;
+
+    nav.active {
         left: 0;
-        height: 100vh;
-        overflow-y: auto;
-        background: rgba(52, 73, 94, 0.95);
-        text-align: center;
-        padding-top: 60px;
-        transition: all 0.3s ease-in-out;
-        z-index: 1100;
-    }
-
-    nav ul.active {
-        display: flex;
-    }
-
-    nav ul li {
-        margin: 5px 0;
-    }
-
-    nav ul li a {
-        font-size: 16px;
-        padding: 12px 18px;
-        width: 100%;
+        /* Wysuwanie menu na urządzeniach mobilnych */
     }
 }
-
 
 /* Główna sekcja */
 main {
@@ -258,6 +257,7 @@ main {
     margin-left: auto;
     margin-right: auto;
     margin-top: 1em;
+    margin-top: 80px; /* Dodaj margines, aby treść była widoczna */
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
@@ -306,19 +306,23 @@ footer {
 /* Kafelek (link) */
 .card-link {
     display: block;
-    background: rgba(52, 152, 219, 0.1); /* Tło kafelka */
+    background: rgba(52, 152, 219, 0.1);
+    /* Tło kafelka */
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 20px;
-    text-decoration: none; /* Brak podkreślenia */
-    color: inherit; /* Dziedziczy kolor tekstu */
+    text-decoration: none;
+    /* Brak podkreślenia */
+    color: inherit;
+    /* Dziedziczy kolor tekstu */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Efekty po najechaniu na kafelek */
 .card-link:hover {
-    transform: scale(1.05); /* Powiększenie przy najechaniu */
+    transform: scale(1.05);
+    /* Powiększenie przy najechaniu */
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -380,52 +384,106 @@ footer {
 
 .drzewo-genealogiczne img {
     width: 100%;
-    max-width: 800px; /* Maksymalna szerokość obrazu */
+    max-width: 800px;
+    /* Maksymalna szerokość obrazu */
     height: auto;
     border: 2px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-        /* Stylizacja sekcji */
-        .author-section {
-            background-color: #f8f9fa;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-top: 50px;
-        }
+/* Stylizacja sekcji */
+.author-section {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
 
-        .author-section h2 {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 10px;
-        }
+.author-section h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
 
-        .author-name {
-            font-size: 20px;
-            color: #4CAF50;
-            font-weight: bold;
-        }
+.author-name {
+    font-size: 20px;
+    color: #4CAF50;
+    font-weight: bold;
+}
 
-        .author-section p {
-            font-size: 16px;
-            color: #666;
-            margin-top: 10px;
-        }
+.author-section p {
+    font-size: 16px;
+    color: #666;
+    margin-top: 10px;
+}
 
-        /* Stylizacja na ekranach mobilnych */
-        @media (max-width: 600px) {
-            .author-section {
-                padding: 20px;
-            }
+/* Stylizacja na ekranach mobilnych */
+@media (max-width: 600px) {
+    .author-section {
+        padding: 20px;
+    }
 
-            .author-section h2 {
-                font-size: 20px;
-            }
+    .author-section h2 {
+        font-size: 20px;
+    }
 
-            .author-name {
-                font-size: 18px;
-            }
-        }
+    .author-name {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 768px) {
+    nav {
+        left: 0;
+        width: 250px; /* Menu zawsze widoczne na większych ekranach */
+    }
+
+    main {
+        margin-left: 250px; /* Zapewnia, że główny kontent nie będzie zakryty przez nawigację */
+        margin-right: 0; /* Usuwamy prawy margines */
+        margin-top: 80px; /* Możesz dostosować ten margines w zależności od wysokości nawigacji */
+        width: calc(100% - 250px); /* Sprawia, że szerokość kontentu nie przekroczy dostępnej przestrzeni */
+    }
+}
+
+@media (max-width: 767px) {
+    nav {
+        left: -250px; /* Ukrycie menu na urządzeniach mobilnych */
+        width: 250px;
+    }
+
+    .nav-toggle {
+        display: block; /* Pokazuje przycisk hamburgera na mniejszych ekranach */
+    }
+
+    nav.active {
+        left: 0; /* Wysuwanie menu na urządzeniach mobilnych */
+    }
+
+    main {
+        margin-left: 0; /* Zmniejszamy margines, aby treść była cała widoczna, kiedy menu jest ukryte */
+    }
+}
+
+.hero-section {
+    text-align: center;
+    padding: 50px 20px; /* Dodaje przestrzeni wokół sekcji */
+    background-color: #f4f4f9; /* Subtelne tło */
+    border-bottom: 2px solid #ddd; /* Delikatna linia oddzielająca */
+}
+
+.hero-section h1 {
+    font-size: 2em; /* Duży rozmiar czcionki */
+    font-weight: 700; /* Grubsza czcionka */
+    color: #1E90FF; /* Niebieski kolor */
+    margin-bottom: 20px; /* Odstęp poniżej tytułu */
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    color: #555; /* Subtelniejszy kolor tekstu */
+    margin-top: 10px;
+}
