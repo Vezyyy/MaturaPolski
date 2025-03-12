@@ -1,34 +1,27 @@
-/* Stylizacja paska */
-::-webkit-scrollbar {
-    width: 8px;
-    /* Szerokość paska */
+/* RESET I ZASADY OGÓLNE */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    /* Kolor tła paska */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: #ecf0f1;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
-::-webkit-scrollbar-thumb {
-    background-color: #039ae0;
-    /* Zielony kolor paska */
-    border-radius: 10px;
-    /* Zaokrąglone rogi */
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background-color: #1657ac;
-    /* Ciemniejszy zielony kolor po najechaniu */
-}
-
-/* Usunięcie podkreślenia i stylizacja dla linków */
+/* LINKI */
 a {
     text-decoration: none;
-    /* Usunięcie podkreślenia */
     color: inherit;
-    /* Dziedziczy kolor tekstu z rodzica */
     transition: all 0.3s ease;
-    /* Płynne przejścia */
 }
 
 .read_more {
@@ -40,46 +33,40 @@ a {
     font-weight: bold;
 }
 
-/* Styl dla przycisku Powrót do góry */
+/* PRZYCISKI */
 .scroll-to-top {
     position: fixed;
     bottom: 30px;
     right: 30px;
     width: 2.5em;
+    height: 2.5em;
     background-color: #3498db;
     color: white;
     border: none;
-    padding: 15px;
     border-radius: 50%;
     font-size: 24px;
     cursor: pointer;
+    padding: 15px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
     display: none;
-    /* Na początku niewidoczny */
     z-index: 9999;
 }
 
-/* Efekt po najechaniu */
 .scroll-to-top:hover {
     background-color: #2980b9;
     transform: translateY(-5px);
-    /* Lekko unosi się przy hover */
     box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Efekt po kliknięciu (zatrzymuje przycisk w górze) */
 .scroll-to-top:active {
     transform: translateY(2px);
-    /* Przytrzymanie przycisku po kliknięciu */
 }
 
-/* Animacja dla widoczności przycisku */
 .scroll-to-top.show {
     display: block;
 }
 
-/* Dodajmy efekt zmiany koloru przycisku przy przewijaniu */
 .scroll-to-top {
     background-color: rgba(52, 152, 219, 0.9);
 }
@@ -98,50 +85,32 @@ a {
     font-size: 16px;
     margin-top: 10px;
     text-align: center;
+    margin-bottom: 1em;
 }
-
 
 .back-to-home:hover {
     background-color: #45a049;
 }
 
-
-/* Ogólne style strony */
-body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #1e272e, #485460);
-    color: #ecf0f1;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-}
-
-/* Na początek, styl dla samej nawigacji */
+/* NAWIGACJA */
 nav {
     position: fixed;
     top: 0;
-    left: -250px; /* Ukrycie menu na urządzeniach mobilnych */
-    width: 250px;
+    left: 0;
+    width: 280px;
     height: 100%;
-    background-color: #333;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    background-color: #2c3e50;
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.4);
     padding-top: 20px;
     z-index: 1000;
-    /* Zapewnia, że menu jest na wierzchu */
     overflow-y: auto;
-    /* Pozwala na przewijanie menu */
     transition: left 0.3s ease;
-    /* Animacja dla wysuwania menu */
 }
 
-/* Aktywna klasa menu, powodująca jego wysunięcie */
 nav.active {
     left: 0;
-    /* Menu wysuwa się na ekran */
 }
 
-/* Styl dla listy linków */
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -163,134 +132,176 @@ nav ul li a {
     font-size: 16px;
     display: flex;
     align-items: center;
-    padding: 12px 15px;
-    border-radius: 5px;
+    padding: 12px 20px;
+    border-radius: 10px;
     width: 100%;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Styl ikonki i tekstu obok siebie */
 nav ul li a i {
     margin-right: 10px;
     font-size: 18px;
-    /* Rozmiar ikony */
-}
-
-/* Efekt hover - zmiana tła i koloru tekstu */
-nav ul li a:hover {
-    background-color: #555;
-    color: #f4f4f4;
-}
-
-/* Animacja dla ikon */
-nav ul li a i {
     transition: transform 0.3s ease;
 }
 
-nav ul li a:hover i {
-    transform: scale(1.1);
+nav ul li a:hover {
+    background-color: #1abc9c;
+    color: #f4f4f4;
 }
 
-/* Przycisk hamburger menu - widoczny na urządzeniach mobilnych */
+nav ul li a:hover i {
+    transform: scale(1.2);
+}
+
 .nav-toggle {
-    display: none; /* Ukryty domyślnie */
+    display: none;
     font-size: 30px;
     color: white;
     background-color: rgba(128, 128, 128, 0.356);
-    border-radius: 100%; /* Zaokrąglenie na 100% tworzy kółko */
+    border-radius: 100%;
     cursor: pointer;
-    position: fixed; /* Przypinamy przycisk do ekranu */
-    top: 20px; /* Możesz dostosować do preferowanego miejsca */
-    right: 20px; /* Odstęp od prawego krawędzi ekranu */
-    z-index: 2000; /* Upewniamy się, że przycisk jest zawsze na wierzchu */
-    width: 50px; /* Szerokość przycisku */
-    height: 50px; /* Wysokość przycisku */
-    display: flex; /* Używamy Flexbox, aby centrować ikonę */
-    justify-content: center; /* Wyrównanie ikony w poziomie */
-    align-items: center; /* Wyrównanie ikony w pionie */
-    transition: background-color 0.3s; /* Animacja zmiany tła przy kliknięciu */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
     border-color: rgb(249, 250, 249);
 }
 
-/* Styl dla nawigacji na komputerach */
+/* NAWIGACJA DLA URZĄDZEŃ MOBILNYCH */
+@media (max-width: 767px) {
+    nav {
+        left: -280px;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    nav.active {
+        left: 0;
+    }
+
+    main {
+        margin-left: 0;
+    }
+}
+
 @media (min-width: 768px) {
     nav {
         left: 0;
-        /* Menu jest zawsze widoczne na większych ekranach */
-        width: 250px;
+        width: 280px;
     }
 
     .nav-toggle {
         display: none;
-        /* Ukryj przycisk hamburgera na dużych ekranach */
     }
 
     nav ul {
         flex-direction: column;
         padding-top: 20px;
     }
-}
 
-/* Styl dla nawigacji na urządzeniach mobilnych */
-@media (max-width: 767px) {
-    nav {
-        left: -250px;
-        /* Ukrycie menu na urządzeniach mobilnych */
-    }
-
-    .nav-toggle {
-        display: block;
-        /* Pokazuje przycisk hamburgera na mniejszych ekranach */
-    }
-
-    nav.active {
-        left: 0;
-        /* Wysuwanie menu na urządzeniach mobilnych */
+    main {
+        margin-left: 280px;
+        /* Upewniamy się, że margines po lewej jest odpowiedni */
+        margin-right: 20px;
+        /* Zabezpieczamy przestrzeń po prawej */
+        padding-right: 20px;
+        width: calc(100% - 280px);
+        /* Kontent teraz zajmuje przestrzeń po prawej */
     }
 }
 
-/* Główna sekcja */
+
+/* SEKCJE */
 main {
+    position: relative;
     padding: 40px;
-    max-width: 1200px;
-    margin-bottom: 1em;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1em;
-    margin-top: 80px; /* Dodaj margines, aby treść była widoczna */
+    width: 100% - 25%;
+    margin: 1em auto;
+    /* Wyśrodkowanie elementu */
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     backdrop-filter: blur(10px);
+    transition: margin-right 0.3s ease;
+    margin-left: auto;
+    /* Przesunięcie w stronę prawej */
+    margin-right: 0;
+    /* Brak marginesu po prawej stronie */
 }
 
-/* Sekcje w treści */
+
+/* Kafelek z efektem */
+.card-link {
+    display: block;
+    background: rgba(52, 152, 219, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Drzewo genealogiczne */
+#drzewo-genealogiczne {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #1e272e;
+    border-radius: 15px;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.drzewo-genealogiczne img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* FUTURYSTYCZNY EFEKT */
 section {
     margin-bottom: 50px;
     padding: 30px;
     border-left: 6px solid #1abc9c;
     background: rgba(236, 240, 241, 0.2);
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
 
 section:hover {
     transform: scale(1.02);
     border-left: 6px solid #16a085;
+    box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.3);
 }
 
-/* Nagłówki sekcji */
 h2 {
     color: #1abc9c;
-    font-size: 28px;
+    font-size: 32px;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     font-weight: bold;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Stopka */
+/* STOPKA */
 footer {
     text-align: center;
     padding: 20px;
@@ -303,187 +314,13 @@ footer {
     box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Kafelek (link) */
-.card-link {
-    display: block;
-    background: rgba(52, 152, 219, 0.1);
-    /* Tło kafelka */
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    text-decoration: none;
-    /* Brak podkreślenia */
-    color: inherit;
-    /* Dziedziczy kolor tekstu */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Efekty po najechaniu na kafelek */
-.card-link:hover {
-    transform: scale(1.05);
-    /* Powiększenie przy najechaniu */
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Dodatkowy styl dla opisów w kafelku */
-.card-link .description {
-    font-size: 16px;
-    color: #7f8c8d;
-}
-
-/* Dodajemy „kliknij, aby czytać więcej” */
-.card-link .read-more {
-    display: block;
-    margin-top: 15px;
-    font-size: 14px;
-    color: #1abc9c;
-    text-decoration: none;
-}
-
-.card-link .read-more:hover {
-    text-decoration: underline;
-}
-
-/* Stylowanie sekcji Drzewo Genealogiczne */
-#drzewo-genealogiczne {
-    margin-top: 40px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-#drzewo-genealogiczne h2 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-#drzewo-genealogiczne p {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 20px;
-}
-
-#drzewo-genealogiczne ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin-bottom: 20px;
-}
-
-#drzewo-genealogiczne ul li {
-    font-size: 16px;
-    color: #444;
-}
-
-.drzewo-genealogiczne {
-    margin-top: 30px;
-}
-
-.drzewo-genealogiczne img {
-    width: 100%;
-    max-width: 800px;
-    /* Maksymalna szerokość obrazu */
-    height: auto;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Stylizacja sekcji */
 .author-section {
-    background-color: #f8f9fa;
-    padding: 30px;
-    border-radius: 10px;
+    background-color: #2c2a2a48; /* Dodanie koloru tła */
+    padding: 20px; /* Dodanie przestrzeni wokół treści */
+    border-radius: 10px; /* Zaokrąglenie rogów */
+    box-shadow: 0px 4px 8px rgba(30, 39, 46, 0.2), 0px 10px 15px rgba(30, 39, 46, 0.1); /* Cień z dwóch źródeł */
+}
+
+.hero-section{
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 50px;
-}
-
-.author-section h2 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.author-name {
-    font-size: 20px;
-    color: #4CAF50;
-    font-weight: bold;
-}
-
-.author-section p {
-    font-size: 16px;
-    color: #666;
-    margin-top: 10px;
-}
-
-/* Stylizacja na ekranach mobilnych */
-@media (max-width: 600px) {
-    .author-section {
-        padding: 20px;
-    }
-
-    .author-section h2 {
-        font-size: 20px;
-    }
-
-    .author-name {
-        font-size: 18px;
-    }
-}
-
-@media (min-width: 768px) {
-    nav {
-        left: 0;
-        width: 250px; /* Menu zawsze widoczne na większych ekranach */
-    }
-
-    main {
-        margin-left: 250px; /* Zapewnia, że główny kontent nie będzie zakryty przez nawigację */
-        margin-right: 0; /* Usuwamy prawy margines */
-        margin-top: 80px; /* Możesz dostosować ten margines w zależności od wysokości nawigacji */
-        width: calc(100% - 250px); /* Sprawia, że szerokość kontentu nie przekroczy dostępnej przestrzeni */
-    }
-}
-
-@media (max-width: 767px) {
-    nav {
-        left: -250px; /* Ukrycie menu na urządzeniach mobilnych */
-        width: 250px;
-    }
-
-    .nav-toggle {
-        display: block; /* Pokazuje przycisk hamburgera na mniejszych ekranach */
-    }
-
-    nav.active {
-        left: 0; /* Wysuwanie menu na urządzeniach mobilnych */
-    }
-
-    main {
-        margin-left: 0; /* Zmniejszamy margines, aby treść była cała widoczna, kiedy menu jest ukryte */
-    }
-}
-
-.hero-section {
-    text-align: center;
-    padding: 50px 20px; /* Dodaje przestrzeni wokół sekcji */
-    background-color: #f4f4f9; /* Subtelne tło */
-    border-bottom: 2px solid #ddd; /* Delikatna linia oddzielająca */
-}
-
-.hero-section h1 {
-    font-size: 2em; /* Duży rozmiar czcionki */
-    font-weight: 700; /* Grubsza czcionka */
-    color: #1E90FF; /* Niebieski kolor */
-    margin-bottom: 20px; /* Odstęp poniżej tytułu */
-}
-
-.hero-section p {
-    font-size: 1.2rem;
-    color: #555; /* Subtelniejszy kolor tekstu */
-    margin-top: 10px;
 }
